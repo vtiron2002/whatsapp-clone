@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  background: #dadbd3;
+  height: 100vh;
+
+  &__body {
+    display: flex;
+    background: #ededed;
+    height: 90vh;
+    width: 90vw;
+    box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, .4);
+  }
+}
+

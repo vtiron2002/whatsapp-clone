@@ -1,0 +1,19 @@
+.sidebarChat {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  border-bottom: 1px solid #f6f6f6;
+
+  &__info {
+    margin-left: 1em;
+
+    > h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.4em;
+    }
+
+    > p {
+      font-size: .8rem;
+    }
+  }
+}
