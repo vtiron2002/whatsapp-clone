@@ -10,7 +10,7 @@
     text-align: center;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
     img {
       object-fit: contain;
@@ -24,5 +24,11 @@
       background: #0a8d48 !important;
       color: white;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .login__container {
+    width: 90%;
   }
 }

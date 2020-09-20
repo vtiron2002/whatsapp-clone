@@ -10,6 +10,10 @@
     border-bottom: 1px solid lightgray;
     max-height: 5em;
 
+    .arrow {
+      display: none;
+    }
+
     &__info {
       flex: 1;
       margin-left: 1em;
@@ -48,13 +52,27 @@
       input {
         flex: 1;
         border-radius: 30px;
-        padding: .5em 1em;
+        padding: 0.5em 1em;
         border: none;
         outline: none;
         font-size: 1rem;
       }
 
       button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .chat {
+    &__header {
+      .arrow {
+        display: block;
+      }
+
+      .avatar {
         display: none;
       }
     }

@@ -7,7 +7,7 @@ import db from '../../firebase';
 
 import { useHistory } from 'react-router-dom';
 
-const SidebarChat = ({ addNewChat, roomName, id, lastMessage }) => {
+const SidebarChat = ({ addNewChat, roomName, id, closeSidebar }) => {
   const [seed, setSeed] = useState();
   const history = useHistory();
 
@@ -53,7 +53,10 @@ const SidebarChat = ({ addNewChat, roomName, id, lastMessage }) => {
       ) : (
         <div
           className='sidebarChat'
-          onClick={() => history.push(`/room/${id}`)}
+          onClick={() => {
+            history.push(`/room/${id}`);
+            closeSidebar();
+          }}
         >
           <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
           <div className='sidebarChat__info'>

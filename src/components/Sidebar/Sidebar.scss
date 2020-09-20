@@ -1,7 +1,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  flex: .35;
+  flex: 0.35;
   border-right: 1px solid lightgray;
 
   &__header {
@@ -38,7 +38,7 @@
       border: none;
       margin-left: 1em;
       outline: none;
-      font-size: .9rem;
+      font-size: 0.9rem;
     }
 
     > .MuiSvgIcon-root {
@@ -48,5 +48,29 @@
 
   &__chats {
     flex: 1;
+  }
+}
+
+@media (max-width: 830px) {
+  .sidebar {
+    position: absolute;
+    height: 100%;
+    background: #ededed;
+    z-index: 99;
+    transform: translateX(-100%);
+    transition: 0.1s ease-in-out;
+
+    &.open {
+      transform: translateX(0);
+    }
+
+    &__headerRight {
+      .arrow {
+        display: block;
+      }
+      .options {
+        display: none;
+      }
+    }
   }
 }

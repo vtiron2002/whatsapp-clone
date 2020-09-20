@@ -8,6 +8,7 @@ import {
   AttachFile,
   InsertEmoticon,
   Mic,
+  ArrowForwardIos,
 } from '@material-ui/icons';
 import ChatMessage from '../ChatMessage/ChatMessage';
 
@@ -15,6 +16,8 @@ import { useParams } from 'react-router-dom';
 import db from '../../firebase';
 import { useStateValue } from '../../StateProvider';
 import firebase from 'firebase';
+
+import { actionTypes } from '../../reducer';
 
 const Chat = () => {
   const messagesBodyRef = useRef();
@@ -59,15 +62,22 @@ const Chat = () => {
       });
 
     const el = messagesBodyRef.current;
-    el.scrollTo({ left: 0, top: el.scrollHeight, behavior: "smooth" });
+    el.scrollTo({ left: 0, top: el.scrollHeight, behavior: 'smooth' });
 
     setMessageInput('');
   };
 
+  const closeSidebar = () => dispatch({ type: actionTypes.CLOSE_SIDEBAR });
+
   return (
     <div className='chat'>
       <div className='chat__header'>
-        <Avatar />
+        <Avatar className='avatar' />
+        <IconButton
+          onClick={() => dispatch({ type: actionTypes.OPEN_SIDEBAR })}
+          children={<ArrowForwardIos className='arrow' />}
+        />
+
         <div className='chat__header__info'>
           <h2>{room}</h2>
           <p>Last seen {new Date().toLocaleString()}</p>
@@ -77,7 +87,7 @@ const Chat = () => {
         <IconButton children={<MoreVert />} />
       </div>
 
-      <div className='chat__body' ref={messagesBodyRef}>
+      <div className='chat__body' onClick={closeSidebar} ref={messagesBodyRef}>
         {messages.map((m, i) => (
           <ChatMessage
             key={i}

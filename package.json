@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "sass": "^1.26.11"
   }
 }
